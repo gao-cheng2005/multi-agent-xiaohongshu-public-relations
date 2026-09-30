@@ -1,0 +1,35 @@
+# 舆情公关多 Agent 平台 · 后端依赖（Python 3.11）
+# 版本下限与本地实测通过的版本一致；安装：pip install -r requirements.txt
+
+# --- Web 框架 ---
+fastapi>=0.141
+uvicorn[standard]>=0.52
+python-dotenv>=1.2
+pydantic>=2.13,<3.0
+
+# --- 数据库（MySQL 8.0）---
+sqlalchemy>=2.0.54
+asyncmy>=0.2.14
+pymysql>=1.2
+alembic>=1.20
+greenlet>=3.0
+uuid6>=2024
+
+# --- LLM / Agent 编排（LangChain 系）---
+langchain>=1.4
+langchain-openai>=1.6.2     # 注意：1.6+ 需关闭 embedding 的 token 化检查（代码里已处理）
+langgraph>=1.2
+
+# --- 向量库（RAG 文案话术库）---
+chromadb>=1.0
+
+# --- RAG 检索：jieba 分词 + BM25 字面检索兜底 ---
+jieba>=0.42
+rank_bm25>=0.2.2
+
+# --- 报表导出 ---
+openpyxl>=3.1
+
+# --- 测试 ---
+pytest>=9.0
+pytest-asyncio>=1.4

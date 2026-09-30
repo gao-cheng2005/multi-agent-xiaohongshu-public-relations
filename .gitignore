@@ -1,0 +1,37 @@
+# 忽略规则（git）
+# 每个忽略项都可以有注释说明原因；以 # 开头的行是注释。
+
+# 密钥与环境配置（含 MySQL 密码 / 硅基流动 API Key，严禁提交）
+# 只提交模板 .env.example；.env 及本地变体一律忽略
+.env
+.env.local
+.env.*
+!.env.example
+
+# Python 字节码与虚拟环境
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.eggs/
+
+# 测试与工具缓存
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 运行时数据与日志（启动自动重建，不入库）
+data/
+logs/
+*.log
+
+# 前端生成物（由 npm / vite 生成）
+frontend/node_modules/
+frontend/dist/
+
+# 操作系统 / 编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
