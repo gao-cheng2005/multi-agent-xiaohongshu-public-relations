@@ -48,25 +48,26 @@
 ## 目录结构
 
 ```text
-code/
-  run.py                    后端启动入口
-  requirements.txt          后端依赖
-  .env.example              配置模板（复制为 .env 使用）
-  app_v2/
-    main.py                 FastAPI 应用与生命周期
-    controllers/            接口层（路由）
-    services/               业务服务 + workflows（LangGraph 图）+ agents（①~⑦）
-    repositories/           数据访问层
-    models/                 SQLAlchemy Model 与 Pydantic Schema
-    db/                     会话、初始化与迁移
-    collectors/             OpenCLI 采集适配
-    core/                   配置、日志、清洗、时间工具
-  frontend/                 Vue3 前端工程
-  tests/                    后端单元测试（pytest）
-  scripts/                  运维脚本（查看/清空/重建向量库等）
-  data/                     运行时生成（ChromaDB）——由 .gitignore 排除
-  logs/                     运行时日志——由 .gitignore 排除
+├── app_v2/                 后端应用
+│   ├── main.py             FastAPI 应用与生命周期
+│   ├── controllers/        接口层（路由）
+│   ├── services/           业务服务 + workflows（LangGraph 图）+ agents（①~⑦）
+│   ├── repositories/       数据访问层
+│   ├── models/             SQLAlchemy Model 与 Pydantic Schema
+│   ├── db/                 会话、初始化与迁移
+│   ├── collectors/         OpenCLI 采集适配
+│   └── core/               配置、日志、清洗、时间工具
+├── frontend/               Vue3 前端工程（Vite + Pinia + Vue Router）
+├── tests/                  后端单元测试（pytest）
+├── scripts/                运维脚本（查看/清空/重建向量库等）
+├── run.py                  后端启动入口
+├── requirements.txt        后端依赖
+├── alembic.ini             数据库迁移配置
+├── .env.example            配置模板（复制为 .env 使用）
+└── README.md               本文档
 ```
+
+> `data/`（ChromaDB）、`logs/`（运行日志）为运行时自动生成，未纳入版本控制。
 
 ## 快速开始
 
@@ -136,8 +137,6 @@ pytest
 | GET/POST | `/plans...` | 方案列表、生成、决策、完成处理 |
 | GET/POST | `/analytics...` | 趋势/热词/效果/产品分析/报告 |
 | GET/POST | `/llm/...` | 模型清单与切换 |
-
-更多细节见《后端接口调用树.md》（仓库根目录）。
 
 ## License
 
